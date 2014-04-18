@@ -1,0 +1,17 @@
+﻿<vm:MainViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:BoardGames.ViewModels">
+
+    <vm:MainViewModel.TopListsMenuItems>
+        <vm:TopListsMenuItem Header="All"/>
+        <vm:TopListsMenuItem Header="Abstract"/>
+        <vm:TopListsMenuItem Header="Children's"/>
+        <vm:TopListsMenuItem Header="Customizable"/>
+        <vm:TopListsMenuItem Header="Family"/>
+        <vm:TopListsMenuItem Header="Party"/>
+        <vm:TopListsMenuItem Header="Strategy"/>
+        <vm:TopListsMenuItem Header="Thematic"/>
+        <vm:TopListsMenuItem Header="War"/>
+    </vm:MainViewModel.TopListsMenuItems>
+</vm:MainViewModel>

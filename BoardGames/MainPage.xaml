@@ -1,0 +1,100 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BoardGames.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:mycontrols="clr-namespace:BoardGames"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" 
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" Mode="Minimized">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="AboutMenuItem" 
+                                              Text="about" 
+                                              Click="AboutMenuItem_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <mycontrols:BoardGamesHeader x:Name="BoardGameHeader" 
+                                     Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+                                     SearchClicked="SearchButton_Click"
+                                     SearchButtonTextVisibility="Visible"/>
+
+        <StackPanel Grid.Row="1" Margin="12,0,0,28">
+            <TextBlock Text="Top Lists" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
+            <phone:LongListSelector x:Name="MainLongListSelector" 
+                                    Margin="0,0,-12,0" 
+                                    LayoutMode="Grid"
+                                    GridCellSize="150,150"
+                                    ItemsSource="{Binding TopListsMenuItems}" 
+                                    SelectionChanged="MainLongListSelector_SelectionChanged"
+                                    toolkit:TiltEffect.IsTiltEnabled="True">
+                <phone:LongListSelector.ItemTemplate>
+                    <DataTemplate>
+                        <!--<Border Margin="5,5,5,5" Background="Blue">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource PhoneTextSmallStyle}" 
+                                       Text="{Binding Header}"/>
+                        </Border>-->
+                        <toolkit:HubTile Margin="5,5,5,5" 
+                                         Message="{Binding Header}"  
+                                         Background="{StaticResource PhoneAccentBrush}" 
+                                         GroupTag="TopLists"
+                                         toolkit:TiltEffect.IsTiltEnabled="True"/>
+                    </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+            </phone:LongListSelector>
+        </Grid>
+
+        <mycontrols:SearchOverlay x:Name="SearchOverlay" 
+                                  Grid.Row="0" 
+                                  Grid.RowSpan="3" 
+                                  Visibility="Collapsed" 
+                                  SearchBoxKeyDown="SearchBox_KeyDown" 
+                                  SearchBoxLostFocus="SearchBox_LostFocus" />
+    </Grid>
+</phone:PhoneApplicationPage>

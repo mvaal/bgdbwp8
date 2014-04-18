@@ -1,0 +1,183 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="BoardGames.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives" 
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/AboutViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" 
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <phone:Pivot Title="BGDb">
+            <phone:PivotItem Header="about">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.RowSpan="2"
+                              Margin="5,0,0,5">
+                            <Border Width="90"
+                                    Height="90"   
+                                    Background="{StaticResource PhoneAccentBrush}" />
+                            <Image Width="90"
+                                   Height="90" 
+                                   Source="/Assets/ApplicationIcon.png" />
+                        </Grid>        
+                        <TextBlock Grid.Row="0" 
+                                   Grid.Column="1" 
+                                   Margin="5,0,0,0"
+                                   Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                                   FontSize="26" />
+                        <TextBlock Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Style="{StaticResource PhoneTextSubtleStyle}"  
+                                   Text="{Binding Version}" />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:RadSlideHubTile Grid.Row="0"
+                                                 Grid.Column="0"
+                                                 Width="220" 
+                                                 Height="220"
+                                                 UpdateInterval="0:0:3"
+                                                 DataContext="{Binding AboutMenuItems[0]}"
+                                                 FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                                 Background="{StaticResource PhoneAccentBrush}"
+                                                 Title="{Binding}"
+                                                 toolkit:TiltEffect.IsTiltEnabled="True">
+                            <telerik:RadSlideHubTile.TitleTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap"
+                                                       Text="{Binding Header}"/>
+                                </DataTemplate>
+                            </telerik:RadSlideHubTile.TitleTemplate>
+                            <telerik:RadSlideHubTile.Picture>
+                                <Image Source="{Binding Image}"
+                                               Stretch="UniformToFill"/>
+                            </telerik:RadSlideHubTile.Picture>
+                        </telerik:RadSlideHubTile>
+                        <telerik:RadCustomHubTile Grid.Row="0"
+                                                  Grid.Column="1"
+                                                  Width="220" 
+                                                  Height="220"
+                                                  UpdateInterval="0:0:5"
+                                                  DataContext="{Binding AboutMenuItems[1]}"
+                                                  FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                                  Background="{StaticResource PhoneAccentBrush}"
+                                                  
+                                                  toolkit:TiltEffect.IsTiltEnabled="True">
+                            <telerik:RadCustomHubTile.FrontContent>
+                                <Grid Background="{StaticResource PhoneAccentBrush}">
+                                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap"
+                                                       Text="{Binding Header}"/>
+                                </Grid>
+                            </telerik:RadCustomHubTile.FrontContent>
+
+                            <telerik:RadCustomHubTile.BackContent>
+                                <Grid Background="{StaticResource PhoneAccentBrush}">
+                                    <Image Source="{Binding Image}"
+                                               Stretch="UniformToFill"/>
+                                </Grid>
+                            </telerik:RadCustomHubTile.BackContent>
+                        </telerik:RadCustomHubTile>
+                        <telerik:RadSlideHubTile Grid.Row="1"
+                                                 Grid.Column="0"
+                                                 Width="220" 
+                                                 Height="220"
+                                                 UpdateInterval="0:0:4"
+                                                 DataContext="{Binding AboutMenuItems[2]}"
+                                                 FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                                 Background="{StaticResource PhoneAccentBrush}"
+                                                 Title="{Binding}"
+                                                 toolkit:TiltEffect.IsTiltEnabled="True">
+                            <telerik:RadSlideHubTile.TitleTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap"
+                                                       Text="{Binding Header}"/>
+                                </DataTemplate>
+                            </telerik:RadSlideHubTile.TitleTemplate>
+                            <telerik:RadSlideHubTile.Picture>
+                                <Image Source="{Binding Image}"
+                                               Stretch="UniformToFill"/>
+                            </telerik:RadSlideHubTile.Picture>
+                        </telerik:RadSlideHubTile>
+                    </Grid>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--<phone:PivotItem Header="help">
+                <Grid/>
+            </phone:PivotItem>-->
+
+            <phone:PivotItem Header="history">
+                <Grid>
+                    <phone:LongListSelector ItemsSource="{Binding HistoryMenuItems}">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0, 0, 0, 10">
+                                    <TextBlock Foreground="{StaticResource PhoneAccentBrush}"
+                                               Style="{StaticResource PhoneTextLargeStyle}"
+                                               Text="{Binding Title}"/>
+                                    <phone:LongListSelector ItemsSource="{Binding Updates}">
+                                        <phone:LongListSelector.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Margin="0, 0, 0, 10">
+                                                    <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                                                               Text="{Binding Path=., StringFormat='*{0}'}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </phone:LongListSelector.ItemTemplate>
+                                    </phone:LongListSelector>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="credits">
+                <Grid>
+                    <phone:LongListSelector ItemsSource="{Binding CreditsMenuItems}">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0, 0, 0, 10">
+                                    <!--<TextBlock Text="{Binding Header}" Style="{StaticResource PhoneTextLargeStyle}" Tap=""/>-->
+                                    <HyperlinkButton FontSize="30" HorizontalAlignment="Left" NavigateUri="{Binding Url}" TargetName="_blank" Content="{Binding Header}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

@@ -1,0 +1,54 @@
+﻿<vm:DetailsViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:BoardGames.ViewModels"
+    xmlns:ns="clr-namespace:BoardGames">
+
+    <vm:DetailsViewModel.BoardGame >
+        <ns:BoardGame Name="Eclipse" >
+            <ns:BoardGame.DecodedDescription>Description &lt;br/&gt;Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description</ns:BoardGame.DecodedDescription>
+            <ns:BoardGame.MinPlayersString>5</ns:BoardGame.MinPlayersString>
+            <ns:BoardGame.MaxPlayersString>10</ns:BoardGame.MaxPlayersString>
+            <ns:BoardGame.YearPublishedString>1999</ns:BoardGame.YearPublishedString>
+            <ns:BoardGame.FormattedPlayers>2-4</ns:BoardGame.FormattedPlayers>
+            <ns:BoardGame.PlayingTimeString>60</ns:BoardGame.PlayingTimeString>
+            <ns:BoardGame.AgeString>10</ns:BoardGame.AgeString>
+            <ns:BoardGame.Rank>50</ns:BoardGame.Rank>
+            <ns:BoardGame.RankList>
+                <ns:Rank FriendlyName="Board Game Rank" BayesAverage="6.7458" Value="7" />
+            </ns:BoardGame.RankList>
+        </ns:BoardGame>
+    </vm:DetailsViewModel.BoardGame>
+    <vm:DetailsViewModel.Expansions>
+        <ns:BoardGame Name="Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse Eclipse" >
+            <ns:BoardGame.Description>Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description</ns:BoardGame.Description>
+            <ns:BoardGame.MinPlayersString>5</ns:BoardGame.MinPlayersString>
+            <ns:BoardGame.MaxPlayersString>10</ns:BoardGame.MaxPlayersString>
+            <ns:BoardGame.YearPublishedString>1999</ns:BoardGame.YearPublishedString>
+            <ns:BoardGame.YearPublished>1999</ns:BoardGame.YearPublished>
+            <ns:BoardGame.FormattedPlayers>2-4</ns:BoardGame.FormattedPlayers>
+            <ns:BoardGame.PlayingTimeString>60</ns:BoardGame.PlayingTimeString>
+            <ns:BoardGame.AgeString>10</ns:BoardGame.AgeString>
+            <ns:BoardGame.Rank>50</ns:BoardGame.Rank>
+            <ns:BoardGame.RankList>
+                <ns:Rank FriendlyName="Board Game Rank" BayesAverage="6.7458" Value="7" />
+            </ns:BoardGame.RankList>
+        </ns:BoardGame>
+        <ns:BoardGame Name="Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2 Eclipse 2" >
+            <ns:BoardGame.Description>Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description</ns:BoardGame.Description>
+            <ns:BoardGame.MinPlayersString>5</ns:BoardGame.MinPlayersString>
+            <ns:BoardGame.MaxPlayersString>10</ns:BoardGame.MaxPlayersString>
+            <ns:BoardGame.YearPublishedString>2000</ns:BoardGame.YearPublishedString>
+            <ns:BoardGame.YearPublished>2000</ns:BoardGame.YearPublished>
+            <ns:BoardGame.FormattedPlayers>2-4</ns:BoardGame.FormattedPlayers>
+            <ns:BoardGame.PlayingTimeString>60</ns:BoardGame.PlayingTimeString>
+            <ns:BoardGame.AgeString>10</ns:BoardGame.AgeString>
+            <ns:BoardGame.Rank>50</ns:BoardGame.Rank>
+            <ns:BoardGame.RankList>
+                <ns:Rank FriendlyName="Board Game Rank" BayesAverage="6.7458" Value="7" />
+            </ns:BoardGame.RankList>
+        </ns:BoardGame>
+    </vm:DetailsViewModel.Expansions>
+    <vm:DetailsViewModel.ExploreKeyedList>
+    </vm:DetailsViewModel.ExploreKeyedList>
+ </vm:DetailsViewModel>

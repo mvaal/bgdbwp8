@@ -1,0 +1,31 @@
+﻿<vm:AboutViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:BoardGames.ViewModels"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Version="1.0.0.0">
+
+    <vm:AboutViewModel.AboutMenuItems>
+        <vm:AboutMenuItem Header="I love this app"/>
+        <vm:AboutMenuItem Header="feedback"/>
+        <vm:AboutMenuItem Header="more apps"/>
+    </vm:AboutViewModel.AboutMenuItems>
+
+    <vm:AboutViewModel.HistoryMenuItems>  
+        <vm:HistoryMenuItem Title="1.0.0.0">
+            <vm:HistoryMenuItem.Updates>
+                <sys:String>Initial public release.</sys:String>
+            </vm:HistoryMenuItem.Updates>
+        </vm:HistoryMenuItem>
+        <vm:HistoryMenuItem Title="1.0.0.1">
+            <vm:HistoryMenuItem.Updates>
+                <sys:String>Some more stuff!</sys:String>
+                <sys:String>And some more stuff!</sys:String>
+            </vm:HistoryMenuItem.Updates>
+        </vm:HistoryMenuItem>
+    </vm:AboutViewModel.HistoryMenuItems>
+
+    <vm:AboutViewModel.CreditsMenuItems>
+        <vm:CreditsMenuItem Header="Microsoft Silverlight Toolkit"/>
+    </vm:AboutViewModel.CreditsMenuItems>
+</vm:AboutViewModel>

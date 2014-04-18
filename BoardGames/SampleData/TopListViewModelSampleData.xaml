@@ -1,0 +1,26 @@
+﻿<vm:TopListViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:BoardGames.ViewModels" 
+    xmlns:bg="clr-namespace:BoardGames"
+    Title="Strategy">
+    <vm:TopListViewModel.BoardGames>
+        <vm:IndexedBoardGame Index="1">
+            <vm:IndexedBoardGame.BoardGame>
+                <bg:BoardGame x:Name="blah" Name="Temp 1" YearPublished="2000"/>
+            </vm:IndexedBoardGame.BoardGame>
+        </vm:IndexedBoardGame>
+        <vm:IndexedBoardGame Index="2">
+            <vm:IndexedBoardGame.BoardGame>
+                <bg:BoardGame x:Name="blah2" Name="Temp 2" YearPublished="2010"/>
+            </vm:IndexedBoardGame.BoardGame>
+        </vm:IndexedBoardGame>
+        <vm:IndexedBoardGame Index="3">
+            <vm:IndexedBoardGame.BoardGame>
+                <bg:BoardGame x:Name="blah3" Name="Temp 3" YearPublished="2020"/>
+            </vm:IndexedBoardGame.BoardGame>
+        </vm:IndexedBoardGame>
+    </vm:TopListViewModel.BoardGames>
+
+
+</vm:TopListViewModel>
