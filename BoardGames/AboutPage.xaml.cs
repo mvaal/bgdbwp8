@@ -23,30 +23,22 @@ namespace BoardGames
             DataContext = model;
         }
 
-        private void AboutLongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RateHubTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var source = (LongListSelector)sender;
-            AboutMenuItem aboutMenuItem = (AboutMenuItem)source.SelectedItem;
-            if (source.SelectedItem == null)
-                return;
+            MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
+            marketplaceReviewTask.Show();
+        }
 
-            switch (aboutMenuItem.UniqueId)
-            {
-                case "rate":
-                    MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
-                    marketplaceReviewTask.Show();
-                    break;
-                case "feedback":
-                    NavigationService.Navigate(new Uri("/FeedbackPage.xaml", UriKind.Relative));
-                    break;
-                case "apps":
-                    MarketplaceSearchTask marketplaceSearchTask = new MarketplaceSearchTask();
-                    marketplaceSearchTask.SearchTerms = "2Pawns";
-                    marketplaceSearchTask.Show();
-                    break;
-            }
+        private void FeedbackHubTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/FeedbackPage.xaml", UriKind.Relative));
+        }
 
-            source.SelectedItem = null;
+        private void AppsHubTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            MarketplaceSearchTask marketplaceSearchTask = new MarketplaceSearchTask();
+            marketplaceSearchTask.SearchTerms = "2Pawns";
+            marketplaceSearchTask.Show();
         }
     }
 }
