@@ -15,6 +15,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
 using Microsoft.Phone.Tasks;
+using Coding4Fun.Toolkit.Controls;
+using BugSense.Core.Model;
+using BugSense;
+using System.Threading.Tasks;
 
 namespace BoardGames
 {
@@ -26,7 +30,7 @@ namespace BoardGames
         public DetailsPage()
         {
             InitializeComponent();
-            TiltEffect.TiltableItems.Add(typeof(HubTile));
+            Microsoft.Phone.Controls.TiltEffect.TiltableItems.Add(typeof(HubTile));
             model = new DetailsViewModel();
             model.PropertyChanged += model_PropertyChanged;
 
@@ -48,6 +52,7 @@ namespace BoardGames
 
         private async void model_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            Exception exception = null;
             switch (e.PropertyName)
             {
                 case "ObjectId":
@@ -57,24 +62,18 @@ namespace BoardGames
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine(ex);
-                        //var exceptionBox = Utility.DisplayExceptionCustomMessageBox(ex);
-                        //exceptionBox.Dismissed += (s1, e1) =>
-                        //{
-                        //    // This is a hack to prevent null pointer exception (bug in wptoolkit)
-                        //    // Happens when navigating from within CustomMesageBox
-                        //    ((CustomMessageBox)s1).Dismissing += (o, e3) => e3.Cancel = true;
-                        //    NavigationService.GoBack();
-                        //};
-                        //exceptionBox.Show();
+                        exception = ex;
                     }
                     finally
                     {
                         //ToggleOverlay(false);
                     }
+                    if (exception != null)
+                    {
+                        await ShowToastException("Error loading details", exception);
+                    }
                     break;
                 case "BoardGame":
-                    //DescriptionWebBrowser.NavigateToString(model.BoardGame.Description);
                     try
                     {
                         RankListSelector.Visibility = model.BoardGame.RankList.Any() ? Visibility.Visible : Visibility.Collapsed;
@@ -82,10 +81,30 @@ namespace BoardGames
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine(ex);
+                        exception = ex;
+                    }
+                    if (exception != null)
+                    {
+                        await ShowToastException("Error loading expansions", exception);
                     }
                     break;
             }
+        }
+
+        private async Task ShowToastException(String title, Exception exception)
+        {
+            ToastPrompt toast = new ToastPrompt()
+            {
+                Title = title,
+                Message = exception.Message,
+                TextOrientation = System.Windows.Controls.Orientation.Vertical,
+                MillisecondsUntilHidden = 4000
+            };
+            //toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+            //toast.Completed += toast_Completed;
+            toast.Show();
+            BugSenseLogResult result = await BugSenseHandler.Instance.LogExceptionAsync(exception);
+            Debug.WriteLine("Client Request: {0}", result.ClientRequest);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -219,6 +238,11 @@ namespace BoardGames
             }
 
             source.SelectedItem = null;
+        }
+
+        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri(String.Format("/DescriptionPage.xaml?descriptionTitle={0}&objectId={1}", "description", model.ObjectId), UriKind.Relative));
         }
     }
 }

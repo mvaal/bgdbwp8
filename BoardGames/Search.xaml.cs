@@ -11,6 +11,9 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using BoardGames.ViewModels;
 using System.Windows.Input;
+using Coding4Fun.Toolkit.Controls;
+using BugSense;
+using BugSense.Core.Model;
 
 namespace BoardGames
 {
@@ -64,6 +67,7 @@ namespace BoardGames
             SearchOverlay.SearchBox.IsEnabled = false;
             string gameName = SearchOverlay.SearchBox.Text;
             SearchResultTextBlock.Text = gameName;
+            Exception exception = null;
             try
             {
                 var model = DataContext as SearchViewModel;
@@ -71,14 +75,36 @@ namespace BoardGames
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
-                //var exceptionBox = Utility.DisplayExceptionCustomMessageBox(ex);
-                //exceptionBox.Show();
+                exception = ex;
             }
             finally
             {
                 SearchOverlay.SearchBox.IsEnabled = true;
             }
+            if (exception != null)
+            {
+                await ShowToastException("Error while searching", gameName, exception);
+            }
+        }
+
+        private async Task ShowToastException(String title, string gameName, Exception exception)
+        {
+            ToastPrompt toast = new ToastPrompt()
+            {
+                Title = title,
+                Message = exception.Message,
+                TextOrientation = System.Windows.Controls.Orientation.Vertical,
+                MillisecondsUntilHidden = 4000
+            };
+            //toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+            //toast.Completed += toast_Completed;
+            toast.Show();
+            LimitedCrashExtraDataList extrasExtraDataList = new LimitedCrashExtraDataList
+            {
+                new CrashExtraData("Search", gameName)
+            };
+            BugSenseLogResult result = await BugSenseHandler.Instance.LogExceptionAsync(exception, extrasExtraDataList);
+            Debug.WriteLine("Client Request: {0}", result.ClientRequest);
         }
 
         private void BoardGames_SelectionChanged(object sender, SelectionChangedEventArgs e)

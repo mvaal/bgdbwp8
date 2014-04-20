@@ -1,4 +1,5 @@
 ﻿using BoardGames.Utilities;
+using Coding4Fun.Toolkit.Controls.Common;
 using Microsoft.Phone.Tasks;
 using System;
 using System.Collections.Generic;
@@ -133,15 +134,15 @@ namespace BoardGames.ViewModels
 
         public AboutViewModel()
         {
-            Version = Utility.GetAttributeFromManifest("Version");
-            Title = Utility.GetAttributeFromManifest("Title");
-            Author = Utility.GetAttributeFromManifest("Author");
-            Publisher = Utility.GetAttributeFromManifest("Publisher");
+            Version = PhoneHelper.GetAppAttribute("Version");
+            Title = PhoneHelper.GetAppAttribute("Title");
+            Author = PhoneHelper.GetAppAttribute("Author");
+            Publisher = PhoneHelper.GetAppAttribute("Publisher");
 
             AboutMenuItem[] aboutMenuItems = new AboutMenuItem[] {
-                new AboutMenuItem("rate" , "I love this app", "/Assets/Images/appbar.heart.png"),
-                new AboutMenuItem("feedback" , "feedback", "/Assets/Images/appbar.speakerphone.png"),
-                new AboutMenuItem("apps" , "more apps", "/Assets/Images/appbar.os.windows.8.png"),
+                new AboutMenuItem("rate" , "I love this app", "/Assets/Images/heart.png"),
+                new AboutMenuItem("feedback" , "feedback", "/Assets/Images/feedback.png"),
+                new AboutMenuItem("apps" , "more apps", "/Assets/Images/windows.png"),
             };
             AboutMenuItems = new ObservableCollection<AboutMenuItem>(aboutMenuItems);
 
@@ -155,7 +156,7 @@ namespace BoardGames.ViewModels
                 new CreditsMenuItem("http://boardgamegeek.com","Board Game Geek" ),
                 new CreditsMenuItem("http://htmlagilitypack.codeplex.com/releases/view/90925","HtmlAgilityPack" ),
                 new CreditsMenuItem("http://www.telerik.com/products/windows-phone.aspx","Telerik" ),
-                new CreditsMenuItem("http://modernuiicons.com/","Modern UI Icons" ),
+                new CreditsMenuItem("http://coding4fun.codeplex.com/","Coding4Fun Toolkit" ),
             };
             CreditsMenuItems = new ObservableCollection<CreditsMenuItem>(creditsMenuItems);
         }

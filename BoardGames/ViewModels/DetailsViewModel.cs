@@ -149,22 +149,20 @@ namespace BoardGames.ViewModels
                 return;
             }
             var expIds = bgExpansions.Where(bg => !bg.Inbound).Select(bg => bg.ObjectId);
-            try {
+            try
+            {
                 Expansions = new ObservableCollection<BoardGame>(await cache.BoardGamesFromIds(expIds));
             }
-            catch (WebException we)
+            finally
             {
-                Debug.WriteLine(we);
-                //var exceptionBox = Utility.DisplayExceptionCustomMessageBox(String.Format("Failed to load {0} expansions.", expIds.Count()), we);
-                //exceptionBox.Show();
-            }
-            if (Expansions.Any())
-            {
-                ExpansionsVisible = Visibility.Visible;
-            }
-            else
-            {
-                ExpansionsVisible = Visibility.Collapsed;
+                if (Expansions == null || !Expansions.Any())
+                {
+                    ExpansionsVisible = Visibility.Collapsed;
+                }
+                else
+                {
+                    ExpansionsVisible = Visibility.Visible;
+                }
             }
         }
 

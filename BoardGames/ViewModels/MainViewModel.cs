@@ -32,15 +32,15 @@ namespace BoardGames.ViewModels
         public void LoadData()
         {
             TopListsMenuItem[] topListsMenuItems = new TopListsMenuItem[] {
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.All, AppResources.TopListsAll),AppResources.TopListsAll,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Abstract,AppResources.TopListsAbstract),AppResources.TopListsAbstract,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Childrens,AppResources.TopListsChildrens),AppResources.TopListsChildrens,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Customizable,AppResources.TopListsCustomizable),AppResources.TopListsCustomizable,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Family,AppResources.TopListsFamily),AppResources.TopListsFamily,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Party,AppResources.TopListsParty),AppResources.TopListsParty,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Strategy,AppResources.TopListsStrategy),AppResources.TopListsStrategy,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Thematic,AppResources.TopListsThematic),AppResources.TopListsThematic,null),
-                new TopListsMenuItem(String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.War,AppResources.TopListsWar),AppResources.TopListsWar,null),
+                new TopListsMenuItem("all", AppResources.TopListsAll,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.All, AppResources.TopListsAll),null),
+                new TopListsMenuItem("abstract", AppResources.TopListsAbstract,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Abstract,AppResources.TopListsAbstract),"/Assets/Images/abstract.png"),
+                new TopListsMenuItem("childrens",AppResources.TopListsChildrens, String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Childrens,AppResources.TopListsChildrens),null),
+                new TopListsMenuItem("customizable", AppResources.TopListsCustomizable,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Customizable,AppResources.TopListsCustomizable),null),
+                new TopListsMenuItem("family",AppResources.TopListsFamily, String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Family,AppResources.TopListsFamily),null),
+                new TopListsMenuItem("party", AppResources.TopListsParty,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Party,AppResources.TopListsParty),null),
+                new TopListsMenuItem("strategy", AppResources.TopListsStrategy,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Strategy,AppResources.TopListsStrategy),"/Assets/Images/strategy.png"),
+                new TopListsMenuItem("thematic", AppResources.TopListsThematic,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Thematic,AppResources.TopListsThematic),null),
+                new TopListsMenuItem("war", AppResources.TopListsWar,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.War,AppResources.TopListsWar),null),
             };
             TopListsMenuItems = new ObservableCollection<TopListsMenuItem>(topListsMenuItems);
 
@@ -66,20 +66,23 @@ namespace BoardGames.ViewModels
 
     public class TopListsMenuItem
     {
+        public string UniqueId { get; set; }
+        public string Url { get; set; }
+        public string Header { get; set; }
+        public string Image { get; set; }
+
         public TopListsMenuItem()
         {
 
         }
 
-        public TopListsMenuItem(string url, string header, string description)
+        public TopListsMenuItem(string uniqueId, string header, string url, string image)
         {
+            UniqueId = uniqueId;
             Url = url;
             Header = header;
-            Description = description;
+            Image = image;
         }
-
-        public string Url { get; set; }
-        public string Header { get; set; }
-        public string Description { get; set; }
     }
+
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
@@ -296,7 +297,19 @@ namespace BoardGames
         {
             get
             {
-                return WebUtility.HtmlDecode(Description).Replace("<br/>", "\n");
+                if (Description != null)
+                {
+                    String decoded = WebUtility.HtmlDecode(Description).Replace("<br/>", "\n");
+                    Regex r = new Regex(@"\n{2,}");
+                    decoded = r.Replace(decoded, "\n");
+                    if (decoded.StartsWith("\n"))
+                    {
+                        return decoded.Substring(1, decoded.Length - 1);
+                    }
+                    
+                    return decoded;
+                }
+                return null;
             }
         }
 

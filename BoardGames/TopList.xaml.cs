@@ -9,6 +9,10 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BoardGames.ViewModels;
 using System.Windows.Input;
+using BugSense.Core.Model;
+using BugSense;
+using System.Diagnostics;
+using Coding4Fun.Toolkit.Controls;
 
 namespace BoardGames
 {
@@ -31,15 +35,29 @@ namespace BoardGames
             model.Title = NavigationContext.QueryString["title"];
 
             var gameType = NavigationContext.QueryString["gametype"];
+            Exception exception = null;
             try
             {
                 await model.Init(gameType);
             }
-            catch (Exception we)
+            catch (Exception ex)
             {
-                Console.WriteLine(we);
-                //var errorBox = Utility.DisplayExceptionCustomMessageBox(we);
-                //errorBox.Show();
+                exception = ex;
+            }
+
+            if (exception != null)
+            {
+                ToastPrompt toast = new ToastPrompt(){
+                    Title = "Error",
+                    Message = exception.Message,
+                    TextOrientation = System.Windows.Controls.Orientation.Vertical,
+                    MillisecondsUntilHidden = 4000
+                };
+                //toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+                //toast.Completed += toast_Completed;
+                toast.Show();
+                BugSenseLogResult result = await BugSenseHandler.Instance.LogExceptionAsync(exception);
+                Debug.WriteLine("Client Request: {0}", result.ClientRequest);
             }
         }
 

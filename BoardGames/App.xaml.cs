@@ -8,12 +8,15 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BoardGames.Resources;
 using BoardGames.ViewModels;
+using BugSense;
+using BugSense.Core.Model;
 
 namespace BoardGames
 {
     public partial class App : Application
     {
         private static MainViewModel viewModel = null;
+        bool wasRelaunched = false;
 
         /// <summary>
         /// A static ViewModel used by the views to bind against.
@@ -42,8 +45,10 @@ namespace BoardGames
         /// </summary>
         public App()
         {
+            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "3a10cb6d");
+
             // Global handler for uncaught exceptions.
-            UnhandledException += Application_UnhandledException;
+            //UnhandledException += Application_UnhandledException;
 
             // Standard XAML initialization
             InitializeComponent();
@@ -147,8 +152,35 @@ namespace BoardGames
             // Handle reset requests for clearing the backstack
             RootFrame.Navigated += CheckForResetNavigation;
 
+            RootFrame.Navigating += RootFrame_Navigating;
+
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
+        }
+
+        /// <summary>
+        /// Handle Fast App Switching
+        /// http://code.msdn.microsoft.com/wpapps/Fast-app-resume-backstack-f16baaa6
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            if (e.NavigationMode == NavigationMode.Reset)
+            {
+                wasRelaunched = true;
+            }
+            else if (e.NavigationMode == NavigationMode.New && wasRelaunched)
+            {
+                wasRelaunched = false;
+
+                if (e.Uri.ToString().Contains("/MainPage.xaml"))
+                {
+                    Debug.WriteLine("Fast App Switching detected");
+                    e.Cancel = true;
+                    RootFrame.Navigated -= ClearBackStackAfterReset;
+                }
+            }
         }
 
         // Do not add any additional code to this method

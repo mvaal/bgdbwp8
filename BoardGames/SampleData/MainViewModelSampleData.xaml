@@ -5,7 +5,7 @@
 
     <vm:MainViewModel.TopListsMenuItems>
         <vm:TopListsMenuItem Header="All"/>
-        <vm:TopListsMenuItem Header="Abstract"/>
+        <vm:TopListsMenuItem Header="Abstract" Image="/Assets/Images/abstract.png"/>
         <vm:TopListsMenuItem Header="Children's"/>
         <vm:TopListsMenuItem Header="Customizable"/>
         <vm:TopListsMenuItem Header="Family"/>

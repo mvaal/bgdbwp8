@@ -8,6 +8,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Diagnostics;
+using BugSense;
+using BugSense.Core.Model;
 
 namespace BoardGames
 {
@@ -48,7 +50,7 @@ namespace BoardGames
             }
             set
             {
-                pubCenterApplicationId = adDuplexAppId;
+                adDuplexAppId = value;
                 AdDuplexAd.AppId = value;
             }
         }
@@ -61,13 +63,22 @@ namespace BoardGames
         private void AdUnit_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
         {
             AdUnit.Visibility = Visibility.Collapsed;
-            AdDuplexAd.Visibility = Visibility.Visible;
-            Debug.WriteLine("Error");
+            if (AdDuplexAppId != null)
+            {
+                AdDuplexAd.Visibility = Visibility.Visible;
+            }
+            // Don't want to waste error logging in bug sense
+            //BugSenseLogResult result = await BugSenseHandler.Instance.LogExceptionAsync(e.Error);
+            //Debug.WriteLine("Client Request: {0}", result.ClientRequest);
+            Debug.WriteLine("PubCenter Ad Unit Failure: {0}", e.Error);
         }
 
         private void AdDuplexAd_AdLoadingError(object sender, AdDuplex.AdLoadingErrorEventArgs e)
         {
-            Debug.WriteLine("Error");
+            // Don't want to waste error logging in bug sense
+            //BugSenseLogResult result = await BugSenseHandler.Instance.LogExceptionAsync(e.Error);
+            //Debug.WriteLine("Client Request: {0}", result.ClientRequest);
+            Debug.WriteLine("AdDuplex Ad Unit Failure: {0}", e.Error);
         }
     }
 }
