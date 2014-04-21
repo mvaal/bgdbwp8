@@ -99,7 +99,7 @@
                            HorizontalAlignment="Center" 
                            TextAlignment="Center" 
                            Visibility="Collapsed"
-                           Text="Search"/>
+                           Text="{Binding Path=LocalizedResources.BGDbSearchButtonText, Source={StaticResource LocalizedStrings}}"/>
             </StackPanel>
             <!--<Image VerticalAlignment="Center" 
                        HorizontalAlignment="Center" 

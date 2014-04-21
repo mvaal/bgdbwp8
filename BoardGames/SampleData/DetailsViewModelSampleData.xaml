@@ -50,5 +50,6 @@
         </ns:BoardGame>
     </vm:DetailsViewModel.Expansions>
     <vm:DetailsViewModel.ExploreKeyedList>
+
     </vm:DetailsViewModel.ExploreKeyedList>
- </vm:DetailsViewModel>
+</vm:DetailsViewModel>

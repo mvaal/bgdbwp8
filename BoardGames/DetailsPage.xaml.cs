@@ -34,19 +34,6 @@ namespace BoardGames
             model = new DetailsViewModel();
             model.PropertyChanged += model_PropertyChanged;
 
-            List<ExploreItem> exploreList = new List<ExploreItem>();
-            //Add your playlistitems in PlayList
-            exploreList.Add(new ExploreItem() { ItemName = "share this link", ExploreGroup = "actions", Id = "share" });
-            exploreList.Add(new ExploreItem() { ItemName = "email this link", ExploreGroup = "actions", Id = "email" });
-            exploreList.Add(new ExploreItem() { ItemName = "view on bgg.com", ExploreGroup = "actions", Id = "web" });
-
-            var groupedExploreList =
-                    from list in exploreList
-                    group list by list.ExploreGroup into listByGroup
-                    select new KeyedList<string, ExploreItem>(listByGroup);
-            List<KeyedList<string, ExploreItem>> exploreKeyedList = new List<KeyedList<string, ExploreItem>>(groupedExploreList);
-            model.ExploreKeyedList = new ObservableCollection<KeyedList<string, ExploreItem>>(exploreKeyedList);
-
             this.DataContext = model;
         }
 
@@ -140,32 +127,32 @@ namespace BoardGames
                 return;
 
             var exploreItem = ExploreList.SelectedItem as ExploreItem;
-            switch (exploreItem.Id)
+            if (exploreItem.Id == DetailsViewModel.SHARE_ID)
             {
-                case "share":
-                    ShareLinkTask shareLinkTask = new ShareLinkTask();
+                ShareLinkTask shareLinkTask = new ShareLinkTask();
 
-                    shareLinkTask.Title = String.Format("Board Games - {0}", model.BoardGame.Name);
-                    shareLinkTask.LinkUri = new Uri(String.Format("http://boardgamegeek.com/boardgame/{0}", model.BoardGame.ObjectId), UriKind.Absolute);
-                    shareLinkTask.Message = String.Format("Check out this board game!");
+                shareLinkTask.Title = String.Format("{0} - {1}", AppResources.ApplicationTitle, model.BoardGame.Name);
+                shareLinkTask.LinkUri = new Uri(String.Format("http://boardgamegeek.com/boardgame/{0}", model.BoardGame.ObjectId), UriKind.Absolute);
+                shareLinkTask.Message = AppResources.DetailsExploreActionsShareMessage;
 
-                    shareLinkTask.Show();
-                    break;
-                case "email":
-                    EmailComposeTask emailComposeTask = new EmailComposeTask();
+                shareLinkTask.Show();
+            }
+            else if (exploreItem.Id == DetailsViewModel.EMAIL_ID)
+            {
+                EmailComposeTask emailComposeTask = new EmailComposeTask();
 
-                    emailComposeTask.Subject = String.Format("Board Games - {0}", model.BoardGame.Name);
-                    emailComposeTask.Body = String.Format("Check out this board game!\nhttp://boardgamegeek.com/boardgame/{0}", model.BoardGame.ObjectId);
+                emailComposeTask.Subject = String.Format("{0} - {1}", AppResources.ApplicationTitle, model.BoardGame.Name);
+                emailComposeTask.Body = String.Format("{0}\nhttp://boardgamegeek.com/boardgame/{1}", AppResources.DetailsExploreActionsEmailMessage, model.BoardGame.ObjectId);
 
-                    emailComposeTask.Show();
-                    break;
-                case "web":
-                    WebBrowserTask webBrowserTask = new WebBrowserTask();
+                emailComposeTask.Show();
+            }
+            else if (exploreItem.Id == DetailsViewModel.WEB_ID)
+            {
+                WebBrowserTask webBrowserTask = new WebBrowserTask();
 
-                    webBrowserTask.Uri = new Uri(String.Format("http://boardgamegeek.com/boardgame/{0}", model.BoardGame.ObjectId), UriKind.Absolute);
+                webBrowserTask.Uri = new Uri(String.Format("http://boardgamegeek.com/boardgame/{0}", model.BoardGame.ObjectId), UriKind.Absolute);
 
-                    webBrowserTask.Show();
-                    break;
+                webBrowserTask.Show();
             }
 
             ExploreList.SelectedItem = null;

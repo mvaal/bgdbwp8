@@ -54,7 +54,7 @@
 
         <StackPanel Grid.Row="1"
                     Margin="12,0,12,30">
-            <TextBlock Text="search results for"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.SearchResultsHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}"/>
             <TextBlock x:Name="SearchResultTextBlock"
                        Text="Board Game"
                        FontSize="40"/>

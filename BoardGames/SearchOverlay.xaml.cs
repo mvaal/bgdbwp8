@@ -19,8 +19,15 @@ namespace BoardGames
         public SearchOverlay()
         {
             InitializeComponent();
+            SearchBox.GotFocus += SearchBox_GotFocus;
             SearchBox.LostFocus += SearchBox_LostFocus;
             SearchBox.KeyDown += SearchBox_KeyDown;
+        }
+
+        void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            SearchBox.SelectionStart = 0;
+            SearchBox.SelectionLength = SearchBox.Text.Length;
         }
 
         public void SearchBox_LostFocus(object sender, RoutedEventArgs e)

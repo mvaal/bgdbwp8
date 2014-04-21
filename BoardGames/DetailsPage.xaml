@@ -103,6 +103,7 @@
 
         <mycontrols:BoardGamesHeader x:Name="BoardGameHeader" 
                                      Grid.Row="0"
+                                     Loading="{Binding IsLoading}"
                                      Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
                                      SearchClicked="SearchButton_Click"/>
         
@@ -176,12 +177,14 @@
                                                         ReadOnly="True">
                                             <toolkit:Rating.FilledItemStyle>
                                                 <Style TargetType="toolkit:RatingItem">
-                                                    <Setter Property="Background" Value="{StaticResource PhoneAccentBrush}" />
+                                                    <Setter Property="Background" 
+                                                            Value="{StaticResource PhoneAccentBrush}" />
                                                 </Style>
                                             </toolkit:Rating.FilledItemStyle>   
                                             <toolkit:Rating.UnfilledItemStyle>
                                                 <Style TargetType="toolkit:RatingItem">
-                                                    <Setter Property="Background" Value="White" />
+                                                    <Setter Property="Background" 
+                                                            Value="White" />
                                                 </Style>
                                             </toolkit:Rating.UnfilledItemStyle> 
                                         </toolkit:Rating>
@@ -195,14 +198,18 @@
                                 Click="DetailsButton_Click"
                                 toolkit:TiltEffect.IsTiltEnabled="True">
                             <StackPanel>
-                                <TextBlock Foreground="{StaticResource PhoneAccentBrush}" Text="description" />
-                                <TextBlock Height="135" TextWrapping="Wrap" TextTrimming="WordEllipsis" Text="{Binding DecodedDescription}" />
+                                <TextBlock Foreground="{StaticResource PhoneAccentBrush}" 
+                                           Text="{Binding Path=LocalizedResources.DetailsDescriptionHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}" />
+                                <TextBlock Height="135" 
+                                           TextWrapping="Wrap" 
+                                           TextTrimming="WordEllipsis" 
+                                           Text="{Binding DecodedDescription}" />
                             </StackPanel>
                         </Button>
                     </StackPanel>
                 </ScrollViewer>
             </phone:PanoramaItem>
-            <phone:PanoramaItem Header="expansions">
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.DetailsExpansionsHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}">
                 <!--<phone:LongListSelector ItemsSource="{Binding Expansions}" 
                                         IsGroupingEnabled="False" 
                                         LayoutMode="Grid"
@@ -259,7 +266,7 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PanoramaItem>
-            <phone:PanoramaItem Header="explore">
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.DetailsExploreHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}">
                 <phone:LongListSelector x:Name="ExploreList"
                                         ItemsSource="{Binding ExploreKeyedList}"
                                         IsGroupingEnabled="true"

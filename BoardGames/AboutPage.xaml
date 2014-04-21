@@ -39,8 +39,8 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <phone:Pivot Title="BGDb">
-            <phone:PivotItem Header="about">
+        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.AboutAboutHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -163,7 +163,7 @@
                 <Grid/>
             </phone:PivotItem>-->
 
-            <phone:PivotItem Header="history">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.AboutHistoryHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}">
                 <Grid>
                     <phone:LongListSelector ItemsSource="{Binding HistoryMenuItems}">
                         <phone:LongListSelector.ItemTemplate>
@@ -189,7 +189,7 @@
                 </Grid>
             </phone:PivotItem>
 
-            <phone:PivotItem Header="credits">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.AboutCreditsHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}">
                 <Grid>
                     <phone:LongListSelector ItemsSource="{Binding CreditsMenuItems}">
                         <phone:LongListSelector.ItemTemplate>

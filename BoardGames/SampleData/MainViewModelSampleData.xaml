@@ -6,12 +6,12 @@
     <vm:MainViewModel.TopListsMenuItems>
         <vm:TopListsMenuItem Header="All"/>
         <vm:TopListsMenuItem Header="Abstract" Image="/Assets/Images/abstract.png"/>
-        <vm:TopListsMenuItem Header="Children's"/>
+        <vm:TopListsMenuItem Header="Children's" Image="/Assets/Images/children.png"/>
         <vm:TopListsMenuItem Header="Customizable"/>
-        <vm:TopListsMenuItem Header="Family"/>
+        <vm:TopListsMenuItem Header="Family" Image="/Assets/Images/family.png"/>
         <vm:TopListsMenuItem Header="Party"/>
-        <vm:TopListsMenuItem Header="Strategy"/>
-        <vm:TopListsMenuItem Header="Thematic"/>
-        <vm:TopListsMenuItem Header="War"/>
+        <vm:TopListsMenuItem Header="Strategy" Image="/Assets/Images/strategy.png"/>
+        <vm:TopListsMenuItem Header="Thematic" Image="/Assets/Images/thematic.png"/>
+        <vm:TopListsMenuItem Header="War" Image="/Assets/Images/war.png"/>
     </vm:MainViewModel.TopListsMenuItems>
 </vm:MainViewModel>

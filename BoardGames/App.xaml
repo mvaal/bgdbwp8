@@ -8,6 +8,8 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:BoardGames" x:Key="LocalizedStrings"/>
+        <formatter:UpperCaseConverter xmlns:formatter="clr-namespace:Converters" x:Key="UpperCaseConverter" />
+        <formatter:LowerCaseConverter xmlns:formatter="clr-namespace:Converters" x:Key="LowerCaseConverter" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

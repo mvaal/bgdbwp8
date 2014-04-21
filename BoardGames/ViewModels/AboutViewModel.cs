@@ -1,4 +1,5 @@
-﻿using BoardGames.Utilities;
+﻿using BoardGames.Resources;
+using BoardGames.Utilities;
 using Coding4Fun.Toolkit.Controls.Common;
 using Microsoft.Phone.Tasks;
 using System;
@@ -140,9 +141,9 @@ namespace BoardGames.ViewModels
             Publisher = PhoneHelper.GetAppAttribute("Publisher");
 
             AboutMenuItem[] aboutMenuItems = new AboutMenuItem[] {
-                new AboutMenuItem("rate" , "I love this app", "/Assets/Images/heart.png"),
-                new AboutMenuItem("feedback" , "feedback", "/Assets/Images/feedback.png"),
-                new AboutMenuItem("apps" , "more apps", "/Assets/Images/windows.png"),
+                new AboutMenuItem("rate" , AppResources.AboutAboutRateHeader, "/Assets/Images/heart.png"),
+                new AboutMenuItem("feedback" , AppResources.AboutAboutFeedbackHeader, "/Assets/Images/feedback.png"),
+                new AboutMenuItem("apps" , AppResources.AboutAboutAppsHeader, "/Assets/Images/windows.png"),
             };
             AboutMenuItems = new ObservableCollection<AboutMenuItem>(aboutMenuItems);
 
@@ -157,7 +158,9 @@ namespace BoardGames.ViewModels
                 new CreditsMenuItem("http://htmlagilitypack.codeplex.com/releases/view/90925","HtmlAgilityPack" ),
                 new CreditsMenuItem("http://www.telerik.com/products/windows-phone.aspx","Telerik" ),
                 new CreditsMenuItem("http://coding4fun.codeplex.com/","Coding4Fun Toolkit" ),
+                new CreditsMenuItem("http://www.windowsphone.com/en-US/store/publishers?publisherId=taropuff","taropuff (thanks for the images)" ),
             };
+        
             CreditsMenuItems = new ObservableCollection<CreditsMenuItem>(creditsMenuItems);
         }
 

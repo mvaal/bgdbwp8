@@ -126,6 +126,7 @@
     <Compile Include="TopList.xaml.cs">
       <DependentUpon>TopList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Converters.cs" />
     <Compile Include="Utilities\IndexedObservableCollection.cs" />
     <Compile Include="Utilities\Utility.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
@@ -248,14 +249,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\abstract.png" />
-    <Content Include="Assets\Images\appbar.heart.png" />
-    <Content Include="Assets\Images\appbar.os.windows.8.png" />
-    <Content Include="Assets\Images\appbar.speakerphone.png" />
+    <Content Include="Assets\Images\children.png" />
+    <Content Include="Assets\Images\family.png" />
     <Content Include="Assets\Images\feedback.png" />
     <Content Include="Assets\Images\heart.png" />
     <Content Include="Assets\Images\search.png" />
     <Content Include="Assets\Images\Spinner.png" />
     <Content Include="Assets\Images\strategy.png" />
+    <Content Include="Assets\Images\thematic.png" />
     <Content Include="Assets\Images\windows.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

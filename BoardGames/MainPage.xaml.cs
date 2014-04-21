@@ -23,6 +23,7 @@ namespace BoardGames
         public MainPage()
         {
             InitializeComponent();
+            BuildLocalizedApplicationBar();
 
             BugSenseHandler.Instance.UnhandledExceptionHandled += (sender, response) =>
                 Debug.WriteLine("Exception of type {0} handled by BugSense\r\nClient Request: {1}",
@@ -48,6 +49,17 @@ namespace BoardGames
                 };
 
             DataContext = App.ViewModel;
+        }
+
+        private void BuildLocalizedApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+
+            ApplicationBarMenuItem aboutAppBarMenuItem =
+                new ApplicationBarMenuItem(AppResources.MainAboutMenuText);
+            aboutAppBarMenuItem.Click += AboutMenuItem_Click;
+            ApplicationBar.MenuItems.Add(aboutAppBarMenuItem);
         }
 
         // Load data for the ViewModel Items

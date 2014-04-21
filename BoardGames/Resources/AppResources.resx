@@ -154,4 +154,88 @@
   <data name="ResourceFlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
   </data>
+  <data name="SearchResultsHeader" xml:space="preserve">
+    <value>Search results for</value>
+  </data>
+  <data name="FeedbackCancelButtonText" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="FeedbackEmailButtonText" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="FeedbackHeader" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="FeedbackListPickerHeader" xml:space="preserve">
+    <value>What feedback do you have about BGDb?</value>
+  </data>
+  <data name="FeedbackListPickerOption1" xml:space="preserve">
+    <value>(tap the list to select an option)</value>
+  </data>
+  <data name="FeedbackListPickerOption2" xml:space="preserve">
+    <value>I love this app!</value>
+  </data>
+  <data name="FeedbackListPickerOption3" xml:space="preserve">
+    <value>I want to request a feature</value>
+  </data>
+  <data name="FeedbackListPickerOption4" xml:space="preserve">
+    <value>I'm having problems with the app</value>
+  </data>
+  <data name="FeedbackListPickerOption5" xml:space="preserve">
+    <value>I have a question / other feedback</value>
+  </data>
+  <data name="MainAboutMenuText" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="MainPageHeader" xml:space="preserve">
+    <value>Top Lists</value>
+  </data>
+  <data name="BGDbSearchButtonText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="DetailsDescriptionHeader" xml:space="preserve">
+    <value>description</value>
+  </data>
+  <data name="DetailsExpansionsHeader" xml:space="preserve">
+    <value>expansions</value>
+  </data>
+  <data name="DetailsExploreActionsEmail" xml:space="preserve">
+    <value>email this link</value>
+  </data>
+  <data name="DetailsExploreActionsEmailMessage" xml:space="preserve">
+    <value>Check out this board game!</value>
+  </data>
+  <data name="DetailsExploreActionsHeader" xml:space="preserve">
+    <value>actions</value>
+  </data>
+  <data name="DetailsExploreActionsShare" xml:space="preserve">
+    <value>share this link</value>
+  </data>
+  <data name="DetailsExploreActionsShareMessage" xml:space="preserve">
+    <value>Check out this board game!</value>
+  </data>
+  <data name="DetailsExploreActionsView" xml:space="preserve">
+    <value>view on bgg.com</value>
+  </data>
+  <data name="DetailsExploreHeader" xml:space="preserve">
+    <value>explore</value>
+  </data>
+  <data name="AboutAboutAppsHeader" xml:space="preserve">
+    <value>more apps</value>
+  </data>
+  <data name="AboutAboutFeedbackHeader" xml:space="preserve">
+    <value>feedback</value>
+  </data>
+  <data name="AboutAboutHeader" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutAboutRateHeader" xml:space="preserve">
+    <value>I love this app</value>
+  </data>
+  <data name="AboutCreditsHeader" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="AboutHistoryHeader" xml:space="preserve">
+    <value>History</value>
+  </data>
 </root>

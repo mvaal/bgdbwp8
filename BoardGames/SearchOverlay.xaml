@@ -13,7 +13,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="SearchBox" LostFocus="SearchBox_LostFocus" KeyDown="SearchBox_KeyDown" />
-        <Grid x:Name="SearchGrid" Grid.Row="1" Background="Black" Opacity="0.6" />
+        <TextBox x:Name="SearchBox" 
+                 LostFocus="SearchBox_LostFocus" 
+                 KeyDown="SearchBox_KeyDown" />
+        <Grid x:Name="SearchGrid" 
+              Grid.Row="1" 
+              Background="Black" 
+              Opacity="0.6" />
     </Grid>
 </UserControl>

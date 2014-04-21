@@ -37,7 +37,7 @@
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
     
-    <phone:PhoneApplicationPage.ApplicationBar>
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton x:Name="EmailButton"
                                             IconUri="/Assets/AppBar/feature.email.png" 
@@ -48,7 +48,7 @@
                                             Text="cancel"
                                             Click="CancelButton_Click"/>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -61,7 +61,7 @@
                        Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Margin="9,-7,0,0" 
                        Style="{StaticResource PhoneTextTitle1Style}"
-                       Text="feedback"/>
+                       Text="{Binding Path=LocalizedResources.FeedbackHeader, Source={StaticResource LocalizedStrings}, Converter={StaticResource LowerCaseConverter}}"/>
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -71,20 +71,27 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <toolkit:ListPicker x:Name="FeedbackPicker" 
-                                Header="What feedback do you have about BGDb?">
-                <toolkit:ListPickerItem x:Name="Option1" Content="(tap the list to select an option)"/>
-                <toolkit:ListPickerItem x:Name="Option2" Content="I love this app!"/>
-                <toolkit:ListPickerItem x:Name="Option3" Content="I want to request a feature"/>
-                <toolkit:ListPickerItem x:Name="Option4" Content="I'm having problems with the app"/>
-                <toolkit:ListPickerItem x:Name="Option5" Content="I have a question / other feedback"/>
+                                Header="{Binding Path=LocalizedResources.FeedbackListPickerHeader, Source={StaticResource LocalizedStrings}}">
+                <toolkit:ListPickerItem x:Name="Option1" 
+                                        Content="{Binding Path=LocalizedResources.FeedbackListPickerOption1, Source={StaticResource LocalizedStrings}}"/>
+                <toolkit:ListPickerItem x:Name="Option2" 
+                                        Content="{Binding Path=LocalizedResources.FeedbackListPickerOption2, Source={StaticResource LocalizedStrings}}"/>
+                <toolkit:ListPickerItem x:Name="Option3" 
+                                        Content="{Binding Path=LocalizedResources.FeedbackListPickerOption3, Source={StaticResource LocalizedStrings}}"/>
+                <toolkit:ListPickerItem x:Name="Option4" 
+                                        Content="{Binding Path=LocalizedResources.FeedbackListPickerOption4, Source={StaticResource LocalizedStrings}}"/>
+                <toolkit:ListPickerItem x:Name="Option5" 
+                                        Content="{Binding Path=LocalizedResources.FeedbackListPickerOption5, Source={StaticResource LocalizedStrings}}"/>
             </toolkit:ListPicker>
-            <TextBox x:Name="FeedbackTextBox" 
-                     Grid.Row="1"
-                     Foreground="Gray"
-                     TextWrapping="Wrap"
-                     Text="{Binding Feedback}"
-                     GotFocus="FeedbackTextBox_GotFocus"
-                     LostFocus="FeedbackTextBox_LostFocus"/>
+            <ScrollViewer Grid.Row="1" >
+                <TextBox x:Name="FeedbackTextBox" 
+                         Grid.Row="1"
+                         Foreground="Gray"
+                         TextWrapping="Wrap"
+                         Text="{Binding Feedback}"
+                         GotFocus="FeedbackTextBox_GotFocus"
+                         LostFocus="FeedbackTextBox_LostFocus"/>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

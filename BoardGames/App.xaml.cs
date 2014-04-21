@@ -45,7 +45,7 @@ namespace BoardGames
         /// </summary>
         public App()
         {
-            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "3a10cb6d");
+            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "4d0c67bb");
 
             // Global handler for uncaught exceptions.
             //UnhandledException += Application_UnhandledException;

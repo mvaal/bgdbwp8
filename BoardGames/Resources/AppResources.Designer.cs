@@ -61,11 +61,254 @@ namespace BoardGames.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to more apps.
+        /// </summary>
+        public static string AboutAboutAppsHeader {
+            get {
+                return ResourceManager.GetString("AboutAboutAppsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to feedback.
+        /// </summary>
+        public static string AboutAboutFeedbackHeader {
+            get {
+                return ResourceManager.GetString("AboutAboutFeedbackHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string AboutAboutHeader {
+            get {
+                return ResourceManager.GetString("AboutAboutHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I love this app.
+        /// </summary>
+        public static string AboutAboutRateHeader {
+            get {
+                return ResourceManager.GetString("AboutAboutRateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        public static string AboutCreditsHeader {
+            get {
+                return ResourceManager.GetString("AboutCreditsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to History.
+        /// </summary>
+        public static string AboutHistoryHeader {
+            get {
+                return ResourceManager.GetString("AboutHistoryHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BGDb.
         /// </summary>
         public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string BGDbSearchButtonText {
+            get {
+                return ResourceManager.GetString("BGDbSearchButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to description.
+        /// </summary>
+        public static string DetailsDescriptionHeader {
+            get {
+                return ResourceManager.GetString("DetailsDescriptionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to expansions.
+        /// </summary>
+        public static string DetailsExpansionsHeader {
+            get {
+                return ResourceManager.GetString("DetailsExpansionsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to email this link.
+        /// </summary>
+        public static string DetailsExploreActionsEmail {
+            get {
+                return ResourceManager.GetString("DetailsExploreActionsEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check out this board game!.
+        /// </summary>
+        public static string DetailsExploreActionsEmailMessage {
+            get {
+                return ResourceManager.GetString("DetailsExploreActionsEmailMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to actions.
+        /// </summary>
+        public static string DetailsExploreActionsHeader {
+            get {
+                return ResourceManager.GetString("DetailsExploreActionsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to share this link.
+        /// </summary>
+        public static string DetailsExploreActionsShare {
+            get {
+                return ResourceManager.GetString("DetailsExploreActionsShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check out this board game!.
+        /// </summary>
+        public static string DetailsExploreActionsShareMessage {
+            get {
+                return ResourceManager.GetString("DetailsExploreActionsShareMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to view on bgg.com.
+        /// </summary>
+        public static string DetailsExploreActionsView {
+            get {
+                return ResourceManager.GetString("DetailsExploreActionsView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to explore.
+        /// </summary>
+        public static string DetailsExploreHeader {
+            get {
+                return ResourceManager.GetString("DetailsExploreHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to cancel.
+        /// </summary>
+        public static string FeedbackCancelButtonText {
+            get {
+                return ResourceManager.GetString("FeedbackCancelButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to email.
+        /// </summary>
+        public static string FeedbackEmailButtonText {
+            get {
+                return ResourceManager.GetString("FeedbackEmailButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback.
+        /// </summary>
+        public static string FeedbackHeader {
+            get {
+                return ResourceManager.GetString("FeedbackHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What feedback do you have about BGDb?.
+        /// </summary>
+        public static string FeedbackListPickerHeader {
+            get {
+                return ResourceManager.GetString("FeedbackListPickerHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (tap the list to select an option).
+        /// </summary>
+        public static string FeedbackListPickerOption1 {
+            get {
+                return ResourceManager.GetString("FeedbackListPickerOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I love this app!.
+        /// </summary>
+        public static string FeedbackListPickerOption2 {
+            get {
+                return ResourceManager.GetString("FeedbackListPickerOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I want to request a feature.
+        /// </summary>
+        public static string FeedbackListPickerOption3 {
+            get {
+                return ResourceManager.GetString("FeedbackListPickerOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I&apos;m having problems with the app.
+        /// </summary>
+        public static string FeedbackListPickerOption4 {
+            get {
+                return ResourceManager.GetString("FeedbackListPickerOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I have a question / other feedback.
+        /// </summary>
+        public static string FeedbackListPickerOption5 {
+            get {
+                return ResourceManager.GetString("FeedbackListPickerOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string MainAboutMenuText {
+            get {
+                return ResourceManager.GetString("MainAboutMenuText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top Lists.
+        /// </summary>
+        public static string MainPageHeader {
+            get {
+                return ResourceManager.GetString("MainPageHeader", resourceCulture);
             }
         }
         
@@ -84,6 +327,15 @@ namespace BoardGames.Resources {
         public static string ResourceLanguage {
             get {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search results for.
+        /// </summary>
+        public static string SearchResultsHeader {
+            get {
+                return ResourceManager.GetString("SearchResultsHeader", resourceCulture);
             }
         }
         

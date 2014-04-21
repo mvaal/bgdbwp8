@@ -34,13 +34,13 @@ namespace BoardGames.ViewModels
             TopListsMenuItem[] topListsMenuItems = new TopListsMenuItem[] {
                 new TopListsMenuItem("all", AppResources.TopListsAll,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.All, AppResources.TopListsAll),null),
                 new TopListsMenuItem("abstract", AppResources.TopListsAbstract,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Abstract,AppResources.TopListsAbstract),"/Assets/Images/abstract.png"),
-                new TopListsMenuItem("childrens",AppResources.TopListsChildrens, String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Childrens,AppResources.TopListsChildrens),null),
+                new TopListsMenuItem("childrens",AppResources.TopListsChildrens, String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Childrens,AppResources.TopListsChildrens),"/Assets/Images/children.png"),
                 new TopListsMenuItem("customizable", AppResources.TopListsCustomizable,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Customizable,AppResources.TopListsCustomizable),null),
-                new TopListsMenuItem("family",AppResources.TopListsFamily, String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Family,AppResources.TopListsFamily),null),
-                new TopListsMenuItem("party", AppResources.TopListsParty,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Party,AppResources.TopListsParty),null),
+                new TopListsMenuItem("family",AppResources.TopListsFamily, String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Family,AppResources.TopListsFamily),"/Assets/Images/family.png"),
+                new TopListsMenuItem("party", AppResources.TopListsParty,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Party,AppResources.TopListsParty),"/Assets/Images/party.png"),
                 new TopListsMenuItem("strategy", AppResources.TopListsStrategy,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Strategy,AppResources.TopListsStrategy),"/Assets/Images/strategy.png"),
-                new TopListsMenuItem("thematic", AppResources.TopListsThematic,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Thematic,AppResources.TopListsThematic),null),
-                new TopListsMenuItem("war", AppResources.TopListsWar,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.War,AppResources.TopListsWar),null),
+                new TopListsMenuItem("thematic", AppResources.TopListsThematic,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.Thematic,AppResources.TopListsThematic),"/Assets/Images/thematic.png"),
+                new TopListsMenuItem("war", AppResources.TopListsWar,String.Format("/TopList.xaml?gametype={0}&title={1}", BoardGameType.War,AppResources.TopListsWar),"/Assets/Images/war.png"),
             };
             TopListsMenuItems = new ObservableCollection<TopListsMenuItem>(topListsMenuItems);
 

@@ -60,7 +60,8 @@
                 <TextBlock TextWrapping="Wrap" 
                            Text="{Binding DecodedDescription}" />
             </ScrollViewer>-->
-            <mycontrols:ScrollableTextBlock Text="{Binding DecodedDescription}" />
+            <mycontrols:ScrollableTextBlock ObjectId="{Binding ObjectId}" 
+                                            Text="{Binding DecodedDescription}" />
         </Grid>
 
         <mycontrols:SearchOverlay x:Name="SearchOverlay" 

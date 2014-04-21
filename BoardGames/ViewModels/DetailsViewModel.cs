@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoardGames.Resources;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -13,6 +14,10 @@ namespace BoardGames.ViewModels
 {
     public class DetailsViewModel : INotifyPropertyChanged
     {
+        public static readonly string SHARE_ID = "share";
+        public static readonly string EMAIL_ID = "email";
+        public static readonly string WEB_ID = "web";
+
         private BoardGameCache cache;
 
         private string objectId;
@@ -100,6 +105,20 @@ namespace BoardGames.ViewModels
             }
         }
 
+        private bool isLoading;
+        public bool IsLoading
+        {
+            get
+            {
+                return isLoading;
+            }
+            set
+            {
+                isLoading = value;
+                NotifyPropertyChanged("IsLoading");
+            }
+        }
+
         public DetailsViewModel()
         {
             InitializeData();
@@ -115,6 +134,24 @@ namespace BoardGames.ViewModels
             };
             expansions = new ObservableCollection<BoardGame>(Enumerable.Empty<BoardGame>());
             expansionsVisible = Visibility.Visible;
+
+            InitializeExploreOptions();
+        }
+
+        private void InitializeExploreOptions()
+        {
+            List<ExploreItem> exploreList = new List<ExploreItem>();
+            //Add your playlistitems in PlayList
+            exploreList.Add(new ExploreItem() { ItemName = AppResources.DetailsExploreActionsShare, ExploreGroup = AppResources.DetailsExploreActionsHeader.ToLower(), Id = SHARE_ID });
+            exploreList.Add(new ExploreItem() { ItemName = AppResources.DetailsExploreActionsEmail, ExploreGroup = AppResources.DetailsExploreActionsHeader.ToLower(), Id = EMAIL_ID });
+            exploreList.Add(new ExploreItem() { ItemName = AppResources.DetailsExploreActionsView, ExploreGroup = AppResources.DetailsExploreActionsHeader.ToLower(), Id = WEB_ID });
+
+            var groupedExploreList =
+                    from list in exploreList
+                    group list by list.ExploreGroup into listByGroup
+                    select new KeyedList<string, ExploreItem>(listByGroup);
+            List<KeyedList<string, ExploreItem>> exploreKeyedList = new List<KeyedList<string, ExploreItem>>(groupedExploreList);
+            ExploreKeyedList = new ObservableCollection<KeyedList<string, ExploreItem>>(exploreKeyedList);
         }
 
         public async Task LoadBoardGameAsync()
@@ -127,7 +164,19 @@ namespace BoardGames.ViewModels
             int id;
             if (int.TryParse(objectId, out id))
             {
-                BoardGame = (await cache.BoardGamesFromIds(id)).First();
+                // Wait to set Property until after IsLoading is turned off due to 
+                // property change event
+                BoardGame boardGame = null;
+                IsLoading = true;
+                try
+                {
+                    boardGame = (await cache.BoardGamesFromIds(id)).First();
+                }
+                finally
+                {
+                    IsLoading = false;
+                }
+                BoardGame = boardGame;
             }
             else
             {
@@ -151,7 +200,17 @@ namespace BoardGames.ViewModels
             var expIds = bgExpansions.Where(bg => !bg.Inbound).Select(bg => bg.ObjectId);
             try
             {
-                Expansions = new ObservableCollection<BoardGame>(await cache.BoardGamesFromIds(expIds));
+                ObservableCollection<BoardGame> expansions = null;
+                IsLoading = true;
+                try
+                {
+                    expansions = new ObservableCollection<BoardGame>(await cache.BoardGamesFromIds(expIds));
+                }
+                finally
+                {
+                    IsLoading = false;
+                }
+                Expansions = expansions;
             }
             finally
             {

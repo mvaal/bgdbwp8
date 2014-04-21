@@ -88,7 +88,7 @@
                                      SearchClicked="BoardGameHeader_SearchClicked"/>        
 
         <StackPanel Grid.Row="1" Margin="12,17,0,28">
-            <TextBlock Text="{Binding Title}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Title, Converter={StaticResource LowerCaseConverter}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">

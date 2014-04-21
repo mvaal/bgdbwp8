@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using BoardGames.ViewModels;
 using System.Windows.Media;
 using Microsoft.Phone.Tasks;
+using BoardGames.Resources;
 
 namespace BoardGames
 {
@@ -20,8 +21,28 @@ namespace BoardGames
         public FeedbackPage()
         {
             InitializeComponent();
+            BuildLocalizedApplicationBar();
             model = new FeedbackViewModel();
             DataContext = model;
+        }
+
+        private void BuildLocalizedApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+
+            ApplicationBarIconButton emailAppBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Assets/AppBar/feature.email.png", UriKind.Relative));
+            emailAppBarButton.Text = AppResources.FeedbackEmailButtonText;
+            emailAppBarButton.Click += EmailButton_Click;
+            ApplicationBar.Buttons.Add(emailAppBarButton);
+
+            ApplicationBarIconButton cancelAppBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Assets/AppBar/cancel.png", UriKind.Relative));
+            cancelAppBarButton.Text = AppResources.FeedbackCancelButtonText;
+            cancelAppBarButton.Click += CancelButton_Click;
+            ApplicationBar.Buttons.Add(cancelAppBarButton);
         }
 
         private void FeedbackTextBox_GotFocus(object sender, RoutedEventArgs e)
