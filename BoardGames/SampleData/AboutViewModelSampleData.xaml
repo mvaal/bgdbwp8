@@ -6,9 +6,9 @@
     Version="1.0.0.0">
 
     <vm:AboutViewModel.AboutMenuItems>
-        <vm:AboutMenuItem Header="I love this app"/>
-        <vm:AboutMenuItem Header="feedback"/>
-        <vm:AboutMenuItem Header="more apps"/>
+        <vm:AboutMenuItem Header="I love this app" Description="post a 5-star rating in the windows phone store"/>
+        <vm:AboutMenuItem Header="feedback" Description="tech support, feature requests, and suggestions"/>
+        <vm:AboutMenuItem Header="more apps" Description="more apps by this developer"/>
     </vm:AboutViewModel.AboutMenuItems>
 
     <vm:AboutViewModel.HistoryMenuItems>  
@@ -27,5 +27,6 @@
 
     <vm:AboutViewModel.CreditsMenuItems>
         <vm:CreditsMenuItem Header="Microsoft Silverlight Toolkit"/>
+        <vm:CreditsMenuItem Header="taropuff" Description="Thanks for the images"/>
     </vm:AboutViewModel.CreditsMenuItems>
 </vm:AboutViewModel>

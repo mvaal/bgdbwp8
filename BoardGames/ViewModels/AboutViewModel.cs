@@ -141,9 +141,9 @@ namespace BoardGames.ViewModels
             Publisher = PhoneHelper.GetAppAttribute("Publisher");
 
             AboutMenuItem[] aboutMenuItems = new AboutMenuItem[] {
-                new AboutMenuItem("rate" , AppResources.AboutAboutRateHeader, "/Assets/Images/heart.png"),
-                new AboutMenuItem("feedback" , AppResources.AboutAboutFeedbackHeader, "/Assets/Images/feedback.png"),
-                new AboutMenuItem("apps" , AppResources.AboutAboutAppsHeader, "/Assets/Images/windows.png"),
+                new AboutMenuItem("rate" , AppResources.AboutAboutRateHeader, "post a 5-star rating in the windows phone store", "/Assets/Images/heart.png"),
+                new AboutMenuItem("feedback" , AppResources.AboutAboutFeedbackHeader, "tech support, feature requests, and suggestions", "/Assets/Images/feedback.png"),
+                new AboutMenuItem("apps" , AppResources.AboutAboutAppsHeader, "more apps by this developer", "/Assets/Images/windows.png"),
             };
             AboutMenuItems = new ObservableCollection<AboutMenuItem>(aboutMenuItems);
 
@@ -158,7 +158,7 @@ namespace BoardGames.ViewModels
                 new CreditsMenuItem("http://htmlagilitypack.codeplex.com/releases/view/90925","HtmlAgilityPack" ),
                 new CreditsMenuItem("http://www.telerik.com/products/windows-phone.aspx","Telerik" ),
                 new CreditsMenuItem("http://coding4fun.codeplex.com/","Coding4Fun Toolkit" ),
-                new CreditsMenuItem("http://www.windowsphone.com/en-US/store/publishers?publisherId=taropuff","taropuff (thanks for the images)" ),
+                new CreditsMenuItem("http://www.windowsphone.com/en-US/store/publishers?publisherId=taropuff","taropuff", "Thanks for the images." ),
             };
         
             CreditsMenuItems = new ObservableCollection<CreditsMenuItem>(creditsMenuItems);
@@ -179,6 +179,7 @@ namespace BoardGames.ViewModels
     {
         public string UniqueId { get; set; }
         public string Header { get; set; }
+        public string Description { get; set; }
         public string Image { get; set; }
 
         public AboutMenuItem()
@@ -190,6 +191,14 @@ namespace BoardGames.ViewModels
         {
             UniqueId = uniqueId;
             Header = header;
+            Image = image;
+        }
+
+        public AboutMenuItem(string uniqueId, string header, string description, string image)
+        {
+            UniqueId = uniqueId;
+            Header = header;
+            Description = description;
             Image = image;
         }
     }
@@ -215,6 +224,7 @@ namespace BoardGames.ViewModels
     {
         public string Url { get; set; }
         public string Header { get; set; }
+        public string Description { get; set; }
 
         public CreditsMenuItem()
         {
@@ -225,6 +235,13 @@ namespace BoardGames.ViewModels
         {
             Url = url;
             Header = header;
+        }
+
+        public CreditsMenuItem(string url, string header, string description)
+        {
+            Url = url;
+            Header = header;
+            Description = description;
         }
     }
 }

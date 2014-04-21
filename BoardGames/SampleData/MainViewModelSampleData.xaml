@@ -4,12 +4,12 @@
     xmlns:vm="clr-namespace:BoardGames.ViewModels">
 
     <vm:MainViewModel.TopListsMenuItems>
-        <vm:TopListsMenuItem Header="All"/>
+        <vm:TopListsMenuItem Header="All" Image="/Assets/Images/all.png"/>
         <vm:TopListsMenuItem Header="Abstract" Image="/Assets/Images/abstract.png"/>
         <vm:TopListsMenuItem Header="Children's" Image="/Assets/Images/children.png"/>
-        <vm:TopListsMenuItem Header="Customizable"/>
+        <vm:TopListsMenuItem Header="Customizable" Image="/Assets/Images/custom.png"/>
         <vm:TopListsMenuItem Header="Family" Image="/Assets/Images/family.png"/>
-        <vm:TopListsMenuItem Header="Party"/>
+        <vm:TopListsMenuItem Header="Party" Image="/Assets/Images/party.png"/>
         <vm:TopListsMenuItem Header="Strategy" Image="/Assets/Images/strategy.png"/>
         <vm:TopListsMenuItem Header="Thematic" Image="/Assets/Images/thematic.png"/>
         <vm:TopListsMenuItem Header="War" Image="/Assets/Images/war.png"/>

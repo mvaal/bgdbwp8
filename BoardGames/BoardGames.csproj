@@ -249,14 +249,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\abstract.png" />
+    <Content Include="Assets\Images\all.png" />
     <Content Include="Assets\Images\children.png" />
+    <Content Include="Assets\Images\custom.png" />
     <Content Include="Assets\Images\family.png" />
     <Content Include="Assets\Images\feedback.png" />
     <Content Include="Assets\Images\heart.png" />
+    <Content Include="Assets\Images\party.png" />
     <Content Include="Assets\Images\search.png" />
     <Content Include="Assets\Images\Spinner.png" />
     <Content Include="Assets\Images\strategy.png" />
     <Content Include="Assets\Images\thematic.png" />
+    <Content Include="Assets\Images\war.png" />
     <Content Include="Assets\Images\windows.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
