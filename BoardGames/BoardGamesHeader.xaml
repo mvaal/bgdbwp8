@@ -4,13 +4,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mycontrols="clr-namespace:BoardGames"
+    xmlns:c4fcontrols="clr-namespace:Coding4Fun.Toolkit.Controls.Converters;assembly=Coding4Fun.Toolkit.Controls"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    >
-    <!--d:DesignHeight="480" d:DesignWidth="480"-->
+    Foreground="{StaticResource PhoneForegroundBrush}">
+    
     <UserControl.Resources>
+        <c4fcontrols:ThemedImageConverter x:Key="ThemedImageConverter"/>
         <Style x:Key="BoardGameButtonStyle" TargetType="Button">
             <Setter Property="Padding" Value="0"/>
             <Setter Property="BorderThickness" Value="0" />
@@ -93,7 +94,8 @@
                        HorizontalAlignment="Center" 
                        Width="40" 
                        Height="40" 
-                       Source="/Assets/AppBar/feature.search.png"/>
+                       Source="{Binding Converter={StaticResource ThemedImageConverter}, ConverterParameter={StaticResource PhoneBackgroundColor}}"
+                       DataContext="/Assets/Images/{0}/feature.search.png"/>
                 <TextBlock x:Name="SearchButtonTextBlock"
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Center" 
@@ -101,11 +103,6 @@
                            Visibility="Collapsed"
                            Text="{Binding Path=LocalizedResources.BGDbSearchButtonText, Source={StaticResource LocalizedStrings}}"/>
             </StackPanel>
-            <!--<Image VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       Width="40" 
-                       Height="40" 
-                       Source="/Assets/AppBar/feature.search.png"/>-->
         </Button>
     </Grid>
 </UserControl>

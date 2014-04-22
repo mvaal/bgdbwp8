@@ -13,9 +13,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="SearchBox" 
+        <Border Background="{StaticResource PhoneBackgroundBrush}">
+            <TextBox x:Name="SearchBox" 
+                 Background="White"
                  LostFocus="SearchBox_LostFocus" 
                  KeyDown="SearchBox_KeyDown" />
+        </Border>
         <Grid x:Name="SearchGrid" 
               Grid.Row="1" 
               Background="Black" 
