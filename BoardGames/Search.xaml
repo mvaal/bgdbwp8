@@ -96,7 +96,8 @@
 
         <mycontrols:AdControl Grid.Row="3"
                               PubCenterAdUnitId="170561"
-                              PubCenterApplicationId="0468bf41-30ac-4176-9a23-65f80d87c1d5"/>
+                              PubCenterApplicationId="0468bf41-30ac-4176-9a23-65f80d87c1d5"
+                              AdDuplexAppId="97647"/>
 
         <mycontrols:SearchOverlay x:Name="SearchOverlay" 
                                   Grid.Row="0" 
