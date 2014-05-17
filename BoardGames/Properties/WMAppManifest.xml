@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{125793f7-d869-4020-be50-aa4d4bd7f0f2}" Title="BGDb" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Marcus Vaal" Description="Board Game Database based off of " Publisher="2Pawns" PublisherID="{d3e9f906-02bb-4aec-97c3-b99eea7ff45d}">
+  <App xmlns="" ProductID="{125793f7-d869-4020-be50-aa4d4bd7f0f2}" Title="BGDb" RuntimeType="Silverlight" Version="1.0.0.2" Genre="apps.normal" Author="Marcus Vaal" Description="Board Game Database based off of " Publisher="2Pawns" PublisherID="{d3e9f906-02bb-4aec-97c3-b99eea7ff45d}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
